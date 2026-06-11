@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 const challengeSchema = new mongoose.Schema({
-  creatorId: {
+  userId: { // changed from creatorId, as it's now a personal goal/challenge
     type: mongoose.Schema.Types.ObjectId,
     ref: 'User',
     required: true,
@@ -31,24 +31,14 @@ const challengeSchema = new mongoose.Schema({
     type: Date,
     required: true,
   },
-  participants: [{
-    userId: {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: 'User',
-    },
-    progress: {
-      type: Number,
-      default: 0,
-    },
-    joinedAt: {
-      type: Date,
-      default: Date.now,
-    },
-    completed: {
-      type: Boolean,
-      default: false,
-    }
-  }]
+  currentProgress: {
+    type: Number,
+    default: 0,
+  },
+  completed: {
+    type: Boolean,
+    default: false,
+  }
 }, { timestamps: true });
 
 module.exports = mongoose.model('Challenge', challengeSchema);
