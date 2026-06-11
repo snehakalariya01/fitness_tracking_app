@@ -21,6 +21,6 @@ router.get('/:id', getExerciseById);
 router.put('/:id', updateExercise);
 
 // DELETE /api/exercises/:id - Delete a specific exercise
-
+router.delete('/:id', deleteExercise);
 
 module.exports = router;
