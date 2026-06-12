@@ -10,6 +10,13 @@ const userSchema=new mongoose.Schema({
     gender:{type:String,required:true},
     activityLevel:{type:String},
     fitnessGoal:{type:String},
+    stats: {
+        totalWorkouts: { type: Number, default: 0 },
+        totalCaloriesBurned: { type: Number, default: 0 },
+        currentStreak: { type: Number, default: 0 },
+        longestStreak: { type: Number, default: 0 },
+        totalChallengeWins: { type: Number, default: 0 },
+    }
 })
 
 const User=mongoose.model('User',userSchema);
