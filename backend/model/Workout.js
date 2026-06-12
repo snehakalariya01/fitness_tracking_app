@@ -23,11 +23,8 @@ const workoutSchema = new mongoose.Schema({
     required: true,
   },
   exercises: [{
-    exerciseId: {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: 'Exercise',
-      required: true,
-    },
+    name: { type: String, required: true },
+    category: { type: String, required: true },
     sets: { type: Number },
     reps: { type: Number },
     weight: { type: Number }, // in kg or lbs
